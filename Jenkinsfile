@@ -12,7 +12,7 @@ def mavenHome= tool name: 'maven3.6.2'
   echo "JOB Name ${env.JOB_NAME}"
  
  properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2')), pipelineTriggers([pollSCM('* * * * *')])])
-
+stages{
 stage('CheckoutCode')
 {
 git branch: 'development', credentialsId: '45083ce0-8f91-4177-b9b9-570e0d26e939', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
@@ -56,5 +56,5 @@ Mithun Software Solutions,
 }
 */
 
-
+}
 }
